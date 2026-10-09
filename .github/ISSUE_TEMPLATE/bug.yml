@@ -1,29 +1,19 @@
-name: Bug report
-description: Report a reproducible problem in the editor or a playable build.
+name: Bug
+description: Something is not working.
 title: "[Bug] "
 labels: ["bug"]
 body:
   - type: textarea
-    id: reproduction
+    id: problem
     attributes:
-      label: Steps to reproduce
-      description: Include the scene, input sequence, and starting state.
+      label: What went wrong?
+      description: What did you expect, and what happened instead?
     validations:
       required: true
   - type: textarea
-    id: behavior
+    id: repeat
     attributes:
-      label: Expected and actual behavior
+      label: How can we repeat it?
+      description: Include the steps and your Unity version or build. A screenshot can help.
     validations:
       required: true
-  - type: input
-    id: environment
-    attributes:
-      label: Editor version, operating system, and commit or release
-    validations:
-      required: true
-  - type: textarea
-    id: evidence
-    attributes:
-      label: Logs, screenshots, and frequency
-      description: Remove credentials and personal information before attaching logs.
