@@ -35,4 +35,5 @@ Tasks are tracked in [GitHub Issues](https://github.com/Andrewyuan34/keyboard-wa
 
 - [Contribution rules](CONTRIBUTING.md)
 - [Unity setup notes](docs/unity-setup.md)
+- [Validation results](docs/validation-results.md)
 - [Asset credits and permissions](docs/asset-register.md)

@@ -8,10 +8,13 @@ Validated on 8 October 2026 with Unity **6000.6.5f1**, Windows 11, and an RTX 40
 | PlayMode input and physics | 16/16 passed |
 | Windows development build | Passed |
 | Standalone integration | 16/16 checks at each requested 30/60/120 FPS limit |
-| Observed average FPS | 29.3 / 57.6 / 116.1 respectively |
+| Observed average FPS | 29.3 / 58.4 / 116.2 respectively |
 | Actual typing and victory screenshots | Visually checked |
 | C# project build in .NET | Passed, no warnings or errors |
 | Unity CLI + Pipeline | Created, moved, and removed a temporary Editor object |
+| Fresh GitHub clone + Git LFS download | Full validation script passed; working tree stayed clean |
+
+Game and validation-script commit: `45fb522`. The fresh clone started without a Unity `Library` cache.
 
 Coverage includes movement, jumping, timed parry, melee, two Smites, typing corrections and timeout, input isolation, pause/focus handling, healing, puzzle gates, boss damage, victory, and retry. Audio checks confirm nonzero generated DSP output; listening quality needs human review.
 
