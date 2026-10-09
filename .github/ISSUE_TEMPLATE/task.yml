@@ -1,33 +1,18 @@
-name: Development task
-description: A small piece of work with a clear owner and acceptance criteria.
+name: Task
+description: A small piece of work for the team.
 title: "[Task] "
 body:
   - type: textarea
-    id: outcome
+    id: task
     attributes:
-      label: Intended outcome
-      description: What can the player or teammate do when this is complete?
-    validations:
-      required: true
-  - type: input
-    id: owner
-    attributes:
-      label: Proposed owner and reviewer
-      description: Agree ownership before starting. Assign the Issue when the account is available.
-  - type: textarea
-    id: acceptance
-    attributes:
-      label: Acceptance criteria
-      description: List observable checks, including failure and retry behavior where relevant.
+      label: What needs doing?
+      description: A few sentences are enough. Mention any task that must happen first.
     validations:
       required: true
   - type: textarea
-    id: scope
+    id: done
     attributes:
-      label: Files, scenes, and dependencies
-      description: Name shared assets, prerequisite Issues, and what is outside this task.
-  - type: textarea
-    id: validation
-    attributes:
-      label: Validation evidence
-      description: Fill in during implementation with test steps, build/commit, and results.
+      label: How will we know it works?
+      description: Two or three simple checks.
+    validations:
+      required: true
