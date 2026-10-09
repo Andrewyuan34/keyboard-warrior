@@ -1,34 +1,37 @@
-# Creating the Unity project
+# Unity setup
 
-**For the person setting up the project.** Everyone else can follow the [main page](../README.md).
+**Editor:** Unity **6000.6.5f1** (`3ff58d469c8a`). **Project:** `Game/`. **Scene:** `Assets/_Game/Scenes/Validation.unity`.
 
-The project is not created yet. Start with a formal **Unity 6.6** release and the **Universal 2D** template.
+The validation scene is a greybox compatibility prototype with keyboard combat, typing, a rune puzzle, and a boss. It is not the finished course demo.
 
-## First setup
+## Pinned packages
 
-1. Create the Unity project inside this repository as `Game/`.
-2. Confirm **Visible Meta Files** and **Force Text** in Project Settings.
-3. Use Input System for controls, Cinemachine for the camera, and uGUI/TextMeshPro for menus and text. Keep package versions compatible with this editor.
-4. Make a simple test scene and build it for Windows x64.
-5. Commit `Game/Assets/` with its `.meta` files, `Game/Packages/`, and `Game/ProjectSettings/`. Caches and builds are ignored.
-6. Add the exact Unity version, starting scene, controls, and build steps to the README. Ask another teammate to download a fresh copy and run/build it.
+| Package | Version |
+| --- | --- |
+| Universal Render Pipeline | 17.6.0 |
+| Input System | 1.20.1 |
+| uGUI | 2.6.0 |
+| Cinemachine | 6.6.0 |
+| Test Framework | 1.8.0 |
+| 2D Sprite / 2D Tilemap | 1.0.0 each |
+| Unity Pipeline | 0.8.0-exp.1 |
 
-Unity records the editor version in `Game/ProjectSettings/ProjectVersion.txt`. Keep both `manifest.json` and `packages-lock.json` in `Game/Packages/`. Coordinate upgrades with the team.
+The full dependency list and lockfile are in `Game/Packages/`. Project settings use the 2D renderer, Visible Meta Files, and Force Text serialization.
 
-## Keep the game simple
+## Build and validation
 
-- Put our files in `Game/Assets/_Game/`: Scenes, Scripts, Prefabs, Art, Audio, UI, and Data.
-- Agree on character sizes, art style, and sound levels before making lots of assets.
-- Test individual features in small scenes; one person puts them into the main level.
-- While typing a Smite, stop combat controls. Start by freezing the fight while the typing timer runs; pause the timer too when the game is paused or loses focus.
-- Test wrong input, timeout, death, and retry. Check that a parry gives energy only once per attack.
+**Build menu:** Keyboard Warrior → Build Windows validation.
 
-## Before sharing a build
+**Output:** `Builds/Windows/Validation/KeyboardWarrior.exe`; the adjacent data files belong with the executable.
 
-Use `Builds/Windows/<version>/` for output. Ask another person to test the complete game, including typing and retry, at different frame rates.
+With the Editor closed, from the repository root:
 
-ZIP the whole build folder, including the files beside the `.exe`. Add it to GitHub Releases with controls, known problems, and a version tag pointing to the tested code.
+```powershell
+pwsh -File tools/validate-unity.ps1
+```
 
-## Repository owner
+The script runs EditMode and PlayMode tests, a Windows build, and standalone checks at requested 30/60/120 FPS limits. Game windows open briefly for real screenshot checks. `-Mode EditMode`, `PlayMode`, `Build`, or `Smoke` selects one stage. `-EditorPath` supports a custom installation. Reports are written to `artifacts/validation/`.
 
-Invite teammates through **Settings → Collaborators → Add people**. Everyone, including the owner, must use a PR with passing checks. No other person's approval is required. Keep `main` protected.
+## Optional AI authoring
+
+Unity Pipeline provides local Editor commands for Unity CLI. The in-editor Assistant subscription has not been activated. AI tools are optional development tools; gameplay does not require them.
