@@ -27,9 +27,9 @@ We plan to use **Unity 6.6 + Universal 2D**. Once Andrew creates the project, ev
 
 ## How we work
 
-**Pick a task → make a branch → make and test your changes → ask a teammate to check → merge.**
+**Pick a task → make a branch → make and test your changes → open a PR → checks pass → merge.**
 
-A branch keeps your unfinished work separate. A pull request (PR) asks the team to add it to `main`, our shared version.
+A branch keeps your unfinished work separate. A pull request (PR) proposes adding it to `main`, our shared version. Everyone uses a PR; another person's approval is optional.
 
 - Choose a small [task](https://github.com/Andrewyuan34/keyboard-warrior/issues) and say you are working on it.
 - Tell the team before editing a shared scene. One person edits that scene at a time.
@@ -49,6 +49,6 @@ Before a release, someone else should download a fresh copy, build it, and play 
 
 - Move assets inside Unity and include their `.meta` files when uploading.
 - Do not upload cache folders, passwords, or personal information. For outside art/music, check that we can share it and add its [source](docs/asset-register.md).
-- A green GitHub check does not mean the game works. Play the changed part before asking for review.
+- A green GitHub check does not mean the game works. Play the changed part before merging.
 
 **Creating the project?** The [Unity setup notes](docs/unity-setup.md) are for that person; everyone else can start with the guide above.

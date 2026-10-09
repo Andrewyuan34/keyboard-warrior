@@ -31,4 +31,4 @@ ZIP the whole build folder, including the files beside the `.exe`. Add it to Git
 
 ## Repository owner
 
-Invite teammates through **Settings → Collaborators → Add people**. Normal PRs need one teammate's approval and a passing check. Keep `main` protected.
+Invite teammates through **Settings → Collaborators → Add people**. Everyone, including the owner, must use a PR with passing checks. No other person's approval is required. Keep `main` protected.

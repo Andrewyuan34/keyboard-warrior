@@ -16,10 +16,10 @@ Use GitHub Desktop if you are new to Git. You do not need terminal commands.
 2. **Make a branch.** Choose **Current branch → New branch**. Give it a short name such as `add-parry`. Use a new branch for each task.
 3. **Make your changes.** Open Unity and test what you changed. Tell the team before editing a shared scene.
 4. **Save and upload.** Save your Unity scenes and project changes. In Desktop, check the changed files, include related `.meta` files, write a short summary, and click **Commit to…**, then **Publish branch** or **Push origin**.
-5. **Ask for a review.** Use **Preview/Create Pull Request** to open a PR into `main`. Say what changed and how you tested it. Add a screenshot if useful.
-6. **Merge.** After another teammate approves and the checks pass, click **Squash and merge** on GitHub. Close Unity, return to `main`, and fetch/pull before starting the next task.
+5. **Open a PR.** Use **Preview/Create Pull Request** to open a PR into `main`. Say what changed and how you tested it. Ask a teammate for help if needed.
+6. **Merge.** Once the checks pass, click **Squash and merge** on GitHub. Another person's approval is not required. Close Unity, return to `main`, and fetch/pull before starting the next task.
 
-**Commit** saves a checkpoint on your computer. **Push** uploads it. **Merge** adds reviewed work to the team's shared version.
+**Commit** saves a checkpoint on your computer. **Push** uploads it. **Merge** adds the PR's changes to the team's shared version. Everyone, including the owner, uses a PR instead of pushing directly to `main`.
 
 ## If something goes wrong
 
