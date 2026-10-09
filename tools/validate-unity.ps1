@@ -23,11 +23,11 @@ foreach ($platform in @('EditMode', 'PlayMode')) {
         '-testFilter', 'KeyboardWarrior.Validation.Tests', '-testResults', $xmlPath, '-logFile', $logPath)
     & $EditorPath @arguments | Out-Null
     if ($LASTEXITCODE -ne 0) { throw "$platform failed. See $logPath" }
-    [xml]$report = Get-Content -LiteralPath $xmlPath
-    $runResult = $report.'test-run'
+    [xml]$xmlReport = Get-Content -LiteralPath $xmlPath
+    $runResult = $xmlReport.'test-run'
     if ($runResult.result -ne 'Passed' -or [int]$runResult.total -eq 0 -or
         [int]$runResult.passed -ne [int]$runResult.total) { throw "Incomplete or failing results: $xmlPath" }
-    Write-Output "$platform : $($report.'test-run'.passed)/$($report.'test-run'.total) passed"
+    Write-Output "$platform : $($runResult.passed)/$($runResult.total) passed"
 }
 
 if ($Mode -eq 'All' -or $Mode -eq 'Build') {
