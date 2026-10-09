@@ -1,0 +1,6 @@
+{
+  "name": "KeyboardWarrior.Validation",
+  "rootNamespace": "KeyboardWarrior.Validation",
+  "references": ["Unity.InputSystem", "Unity.ugui", "Unity.RenderPipelines.Universal.Runtime"],
+  "autoReferenced": true
+}

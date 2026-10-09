@@ -8,7 +8,7 @@ Changed gameplay must be tested in Unity. Repository checks do not test the game
 
 ## Unity and assets
 
-- All contributors use the exact Unity version recorded in `Game/ProjectSettings/ProjectVersion.txt` once the project is created.
+- All contributors use the exact Unity version recorded in `Game/ProjectSettings/ProjectVersion.txt`.
 - Shared scenes have one editor at a time to avoid conflicts.
 - Assets are moved or renamed inside Unity and committed with their `.meta` files.
 - Common art and audio files use Git LFS; file extensions stay lowercase.
