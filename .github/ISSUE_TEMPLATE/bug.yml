@@ -1,0 +1,29 @@
+name: Bug report
+description: Report a reproducible problem in the editor or a playable build.
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Include the scene, input sequence, and starting state.
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Editor version, operating system, and commit or release
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Logs, screenshots, and frequency
+      description: Remove credentials and personal information before attaching logs.
