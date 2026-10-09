@@ -1,6 +1,6 @@
 # Keyboard Warrior
 
-A keyboard-only 2D action game: fight, parry, then type a sentence to cast a Smite.
+A keyboard-only 2D action game: parry to gain energy, choose a Smite with number keys, then type a sentence to cast it.
 
 **Our goal:** one short level and the first boss, playable on Windows. The Unity project has not been created yet.
 

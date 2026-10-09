@@ -15,7 +15,7 @@ Use GitHub Desktop if you are new to Git. You do not need terminal commands.
 1. **Get the latest work.** Commit any unfinished work on its own branch first. Close Unity, select `main` in Desktop, and click **Fetch origin**, then **Pull origin** if offered.
 2. **Make a branch.** Choose **Current branch → New branch**. Give it a short name such as `add-parry`. Use a new branch for each task.
 3. **Make your changes.** Open Unity and test what you changed. Tell the team before editing a shared scene.
-4. **Save and upload.** In Desktop, check the changed files, include related `.meta` files, write a short summary, and click **Commit to…**, then **Publish branch** or **Push origin**.
+4. **Save and upload.** Save your Unity scenes and project changes. In Desktop, check the changed files, include related `.meta` files, write a short summary, and click **Commit to…**, then **Publish branch** or **Push origin**.
 5. **Ask for a review.** Use **Preview/Create Pull Request** to open a PR into `main`. Say what changed and how you tested it. Add a screenshot if useful.
 6. **Merge.** After another teammate approves and the checks pass, click **Squash and merge** on GitHub. Close Unity, return to `main`, and fetch/pull before starting the next task.
 
