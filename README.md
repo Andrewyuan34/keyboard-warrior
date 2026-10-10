@@ -33,6 +33,7 @@ Tasks are tracked in [GitHub Issues](https://github.com/Andrewyuan34/keyboard-wa
 
 ## Project references
 
+- Typing combat design: [implementation spec](docs/typing-combat-spec.md) · [中文阅读版](docs/typing-combat-guide.zh-CN.md)
 - [Contribution rules](CONTRIBUTING.md)
 - [Unity setup notes](docs/unity-setup.md)
 - [Validation results](docs/validation-results.md)
