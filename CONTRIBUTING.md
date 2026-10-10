@@ -1,5 +1,11 @@
 # Contributing
 
+## Project language
+
+English is the shared language for all repository content, including documentation, code comments, identifiers, filenames, and game UI. Write commit messages, issues, and pull requests in English as well. The language used in a private conversation does not change this requirement.
+
+Do not add translated companion documents. When an input test needs a non-English character, use a Unicode escape and explain the case in English. Repository checks reject CJK characters in tracked text and filenames; contributors still review prose for clear English.
+
 ## Changes
 
 Each task uses a separate branch and a pull request (PR) into `main`. Every PR includes a short summary and test results. Passing repository checks are required before squash merging; another person's approval is optional. This applies to all contributors, including the repository owner.

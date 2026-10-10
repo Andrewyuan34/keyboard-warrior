@@ -7,6 +7,10 @@ import sys
 
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
+CJK = re.compile(
+    r"[\u2e80-\u2fdf\u3007\u31c0-\u31ef\u3400-\u4dbf\u4e00-\u9fff"
+    r"\uf900-\ufaff\U00020000-\U0002ffff\U00030000-\U000323af]"
+)
 
 
 def main():
@@ -22,9 +26,13 @@ def main():
     text_extensions = {
         ".cs", ".py", ".json", ".yml", ".yaml", ".unity", ".prefab",
         ".meta", ".shader", ".hlsl", ".cginc", ".inputactions", ".md",
+        ".txt", ".ps1", ".sh", ".cmd", ".bat", ".toml", ".xml",
+        ".uxml", ".uss", ".asmdef", ".asmref", ".csv", ".html", ".css",
     }
     marker = re.compile(r"^(?:<{7} .+|>{7} .+)$", re.MULTILINE)
     for name in sorted(paths):
+        if CJK.search(name):
+            errors.append("Repository filenames must use English: " + ascii(name))
         relative = pathlib.PurePosixPath(name)
         parts = relative.parts
         if (len(parts) > 1 and parts[0].lower() == "game"
@@ -41,12 +49,24 @@ def main():
         if not file_path.is_file():
             errors.append("Tracked file is missing from checkout: " + name)
             continue
-        if relative.suffix.lower() in text_extensions:
-            try:
-                content = file_path.read_text(encoding="utf-8-sig")
-            except UnicodeDecodeError:
+        try:
+            content = file_path.read_text(encoding="utf-8-sig")
+        except UnicodeDecodeError:
+            if relative.suffix.lower() in text_extensions:
                 errors.append("Expected UTF-8 text: " + name)
-                continue
+            continue
+        if "\0" in content:
+            if relative.suffix.lower() in text_extensions:
+                errors.append("Unexpected NUL character in text file: " + name)
+            continue
+        cjk_match = CJK.search(content)
+        if cjk_match:
+            line = content.count("\n", 0, cjk_match.start()) + 1
+            errors.append(
+                f"Repository text must use English: {name}:{line}. "
+                "Use Unicode escapes for non-English input-test fixtures."
+            )
+        if relative.suffix.lower() in text_extensions:
             if marker.search(content):
                 errors.append("Unresolved merge marker: " + name)
 

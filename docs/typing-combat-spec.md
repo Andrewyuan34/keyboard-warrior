@@ -2,7 +2,7 @@
 
 Version **0.1**, 9 October 2026. Status: **design for implementation and playtesting; not implemented or playtested**.
 
-Audience: AI implementers, programmers, and design reviewers. Equivalent Chinese reading edition: [打字战斗设计说明](typing-combat-guide.zh-CN.md). Both editions cover D01–D18. This document specifies a new experiment, not the behavior of the existing `Validation` scene. It does not replace the larger game's approved scope.
+Audience: AI implementers, programmers, and design reviewers. Equivalent plain-language guide: [typing combat guide](typing-combat-guide.md). Both documents are in English and cover D01–D18. This document specifies a new experiment, not the behavior of the existing `Validation` scene. It does not replace the larger game's approved scope.
 
 ## D01 — Objective and scope
 
@@ -75,7 +75,7 @@ Escape pauses each practice step and exposes Resume, Restart step, Next step, Re
 | Shift/Caps Lock | Do not change letter identity. Shift is not a movement modifier in v0.1. |
 | Ctrl/Alt/Windows-key shortcuts, Tab, function keys | Never type letters or trigger spells. OS shortcuts remain OS behavior; switching away pauses as below. |
 
-The supported baseline environment is Windows with an English US keyboard/input layout. Text matching must use the produced Latin character rather than assume physical key names match every layout. Other layouts, IME composition, dead-key sequences, and non-Latin text are unvalidated in v0.1. Unsupported text makes no progress and causes no typo penalty; show a rate-limited instruction to switch to English input. Do not convert unknown Unicode characters to approximate Latin letters. Interface labels may be Chinese or English; the experiment corpus remains unchanged.
+The supported baseline environment is Windows with an English US keyboard/input layout. Text matching must use the produced Latin character rather than assume physical key names match every layout. Other layouts, IME composition, dead-key sequences, and non-Latin text are unvalidated in v0.1. Unsupported text makes no progress and causes no typo penalty; show a rate-limited instruction to switch to English input. Do not convert unknown Unicode characters to approximate Latin letters. Interface labels must be in English; the experiment corpus remains unchanged.
 
 No clipboard ingestion, paste, autocomplete, speech input, or OS key-repeat advancement. Holding a letter produces one logical letter until release and another press; a repeated letter in a word requires two presses. Holding 1 must never repeatedly start attempts. The input adapter must associate accepted text with distinct physical press transitions without dropping fast adjacent presses. `onTextInput` alone is not proof that repeat/paste/origin filtering is correct: perform the input spike in D17 before relying on it. Reject unsupported composed/multi-character commits; distinct ordinary key presses arriving in one rendered frame remain valid and ordered.
 
@@ -408,7 +408,7 @@ Suggested coordination, consistent with current roles: Vincent organizes observa
 
 ## D18 — Version parity, review, and open evidence
 
-The English implementation edition and Chinese reading edition are two presentations of one design. Neither may silently override the other. On contradiction, stop the dependent implementation decision, reconcile both, and increment the design/config version as appropriate. The Chinese edition must retain every gameplay consequence, default value, exception, test category, and decision gate; it may explain architecture without code-like prose.
+The implementation specification and plain-language guide are two English presentations of one design. Neither may silently override the other. On contradiction, stop the dependent implementation decision, reconcile both, and increment the design/config version as appropriate. The plain-language guide must retain every gameplay consequence, default value, exception, test category, and decision gate; it may explain architecture without code-like prose.
 
 | IDs in both editions | Required shared content |
 | --- | --- |
